@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoo Pop — Tap Match Puzzle</title>
+  <link rel="stylesheet" href="zoo.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar glass">
+      <div class="brand">
+        <div class="logo">🧩</div>
+        <h1 class="title">Zoo Pop</h1>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="label">Score</span><span id="score" class="value">0</span></div>
+        <div class="stat"><span class="label">Moves</span><span id="moves" class="value">30</span></div>
+        <div class="stat"><span class="label">Level</span><span id="level" class="value">1</span></div>
+      </div>
+    </header>
+
+    <section class="hud glass">
+      <div class="goals">
+        <div class="goal">
+          <span class="goal-icon" id="goalAIcon">🦊</span>
+          <div class="goal-bar"><div id="goalAProgress" class="goal-progress"></div></div>
+          <span class="goal-text"><span id="goalACurrent">0</span>/<span id="goalATarget">15</span></span>
+        </div>
+        <div class="goal">
+          <span class="goal-icon" id="goalBIcon">🐼</span>
+          <div class="goal-bar"><div id="goalBProgress" class="goal-progress"></div></div>
+          <span class="goal-text"><span id="goalBCurrent">0</span>/<span id="goalBTarget">15</span></span>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="btn-new" class="btn primary">New Level</button>
+        <button id="btn-shuffle" class="btn">Shuffle</button>
+        <button id="btn-reset" class="btn ghost">Reset</button>
+        <button id="btn-help" class="btn soft">?</button>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div id="board" class="board" role="grid" aria-label="Zoo Pop board"></div>
+    </section>
+
+    <section class="legend glass">
+      <div class="chip"><span class="emoji">🚀</span><span>Rocket (row/column)</span></div>
+      <div class="chip"><span class="emoji">💣</span><span>Bomb (3×3)</span></div>
+      <div class="chip"><span class="emoji">✨</span><span>Big group bonus</span></div>
+    </section>
+
+    <footer class="footer">
+      <small>Built with vanilla HTML/CSS/JS. Characters are emoji for portability.</small>
+    </footer>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-card glass">
+        <h2 id="modalTitle">How to Play</h2>
+        <p>Tap groups of <strong>2 or more</strong> adjacent same-colored animals to pop them. Gravity drops tiles and new ones appear.</p>
+        <ul>
+          <li>Pop <strong>5+</strong> to create a <strong>🚀 Rocket</strong> (clears a full row or column).</li>
+          <li>Pop <strong>7+</strong> to create a <strong>💣 Bomb</strong> (clears a 3×3 area).</li>
+          <li>Finish the <strong>goals</strong> within the <strong>moves</strong> limit to win the level.</li>
+        </ul>
+        <div class="modal-actions">
+          <button id="btn-close" class="btn primary">Let’s go!</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+  </main>
+
+  <script src="zoo.js" defer></script>
+</body>
+</html>
